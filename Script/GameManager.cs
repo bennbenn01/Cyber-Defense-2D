@@ -33,13 +33,13 @@ public partial class GameManager : Node2D
 	public void AddCoins(int amount)
 	{
 		Coins += amount;
-		UpdateUI();
+		UpdateCoins();
 	}
 		
 	public void SpendCoins(int amount)
 	{
 		Coins -= amount;
-		UpdateUI();
+		UpdateCoins();
 	}	
 
 	public void ReduceHealth(int amount)
@@ -48,27 +48,30 @@ public partial class GameManager : Node2D
 		if (Health < 0)
 			Health = 0;
 
-		UpdateUI();
+		UpdateHealth();
 	}
 	
 	public void SetWave(int startWave, int endWave)
 	{
-		 
-		
-		UpdateUI();
+
+
+		UpdateWave();
 	}
 	
 	public void GetWave(int startWave, int endWave)
 	{
-		
-		
-		UpdateUI();
-	}	
 
+		// Just getting the wave, no need to update the wave UI
+		//UpdateWave();
+	}
+
+	private void UpdateCoins() => _coinsLabel.Text = $"Coins: {Coins}";
+	private void UpdateHealth() => _healthLabel.Text = $"Health: {Health}%";
+	private void UpdateWave() => _waveLabel.Text = $"Wave: {startWave} / {endWave}";
 	private void UpdateUI()
 	{
-		_coinsLabel.Text = $"Coins: {Coins}";
-		_healthLabel.Text = $"Health: {Health}%";
-		_waveLabel.Text = $"Wave: {startWave} / {endWave}";
-	}	
+		UpdateCoins();
+		UpdateHealth();
+		UpdateWave();
+	}
 }
