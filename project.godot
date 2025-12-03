@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Cyber Defense 2D"
-run/main_scene="uid://b0bjdn7hlkj6x"
+run/main_scene="uid://d48t2c0obebc"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Script/GameManager.cs"
+StageProgress="*res://Script/StageProgress.cs"
 
 [display]
 

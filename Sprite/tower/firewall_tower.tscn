@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ldii3fhp46ja" path="res://Sprite/tower/Firewall Tower.png" id="2_0v1gl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_he68t"]
-radius = 9.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_huc8j"]
 radius = 60.0
@@ -28,6 +27,15 @@ texture = ExtResource("2_0v1gl")
 shape = SubResource("CircleShape2D_huc8j")
 
 [node name="FireballContainer" type="Node" parent="."]
+
+[node name="DeleteButton" type="Button" parent="."]
+visible = false
+offset_left = 11.0
+offset_top = -28.0
+offset_right = 71.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 8
+text = "Delete Tower"
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

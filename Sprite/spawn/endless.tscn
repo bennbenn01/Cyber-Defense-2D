@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvg4fkhw5gltp"]
-
-[ext_resource type="PackedScene" uid="uid://b7t8dio4o7qyn" path="res://Sprite/enemies/malware.tscn" id="1_4dsix"]
+[gd_scene load_steps=2 format=3 uid="uid://bhgg125pbjavu"]
 
 [sub_resource type="Curve2D" id="Curve2D_kdubu"]
 _data = {
@@ -8,13 +6,10 @@ _data = {
 }
 point_count = 35
 
-[node name="Path" type="Path2D"]
+[node name="Endless" type="Path2D"]
 curve = SubResource("Curve2D_kdubu")
 
 [node name="PathSpawner" type="PathFollow2D" parent="."]
 position = Vector2(-11, 114)
 rotation = -0.010988569
 loop = false
-
-[node name="Malware" parent="PathSpawner" instance=ExtResource("1_4dsix")]
-z_index = 3

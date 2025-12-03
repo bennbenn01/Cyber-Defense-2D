@@ -1,25 +1,18 @@
 using Godot;
 using System;
 
-public partial class Virus : CharacterBody2D
+public partial class Virus : EnemyBase
 {
-	public const float Speed = 30.0f;
-
-	public override void _PhysicsProcess(double delta)
+	public Virus()
 	{
-		var parentNode = GetParent() as PathFollow2D;
-		if (parentNode != null)
-		{
-			parentNode.Progress += Speed * (float)delta;
-			
-			var path = parentNode.GetParent() as Path2D;
-			if (path != null) 
-			{
-				if (parentNode.Progress >= path.Curve.GetBakedLength()) 
-				{
-					QueueFree();
-				}		
-			}
-		}
+		Speed = 30.0f;
+		Health = 45;
+		InfiltrationDmg = 3;
+		CoinReward = 4;
 	}
+
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+    }	
 }

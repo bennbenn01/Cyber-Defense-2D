@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c87hu3fcki3ns"]
 
-[ext_resource type="Script" uid="uid://cdfoiy01v20db" path="res://Sprite/enemies/Ransomware.cs" id="1_avnkr"]
+[ext_resource type="Script" uid="uid://cdfoiy01v20db" path="res://Script/Ransomware.cs" id="1_avnkr"]
 [ext_resource type="Texture2D" uid="uid://dcjxoan2k5ia7" path="res://Sprite/enemies/ransomware.png" id="1_vdaww"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avnkr"]
@@ -8,10 +8,10 @@
 [node name="Ransomware" type="CharacterBody2D"]
 script = ExtResource("1_avnkr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_avnkr")
-
 [node name="Ransomware" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_vdaww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_avnkr")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3172k0tfxxmf"]
+[gd_scene load_steps=14 format=3 uid="uid://d3172k0tfxxmf"]
 
 [ext_resource type="PackedScene" uid="uid://dmeqbqa75na6r" path="res://Sprite/ui/firewall_tower_panel.tscn" id="1_8j4gr"]
 [ext_resource type="PackedScene" uid="uid://b0iaeglx7elg4" path="res://Sprite/ui/anti_virus_tower_panel.tscn" id="2_b2t53"]
 [ext_resource type="PackedScene" uid="uid://bdmhf4sawmnop" path="res://Sprite/ui/ids_tower_panel.tscn" id="3_1gbx0"]
 [ext_resource type="Script" uid="uid://b00sr667sto1f" path="res://Script/ShopPanel.cs" id="4_ormwy"]
+[ext_resource type="Theme" uid="uid://c62ylpft0ap4m" path="res://Sprite/ui/style/button_theme.tres" id="5_pd4wv"]
+[ext_resource type="Script" uid="uid://c7knbnye34fu1" path="res://Script/ReturnHomePanel.cs" id="6_pxn6o"]
+[ext_resource type="Script" uid="uid://bu3tdm4vumbuv" path="res://Script/ClosePanel.cs" id="7_2ll40"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2t53"]
 bg_color = Color(0.21568628, 0.21568628, 0.21568628, 0.7254902)
@@ -20,6 +23,19 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="Theme" id="Theme_8j4gr"]
 Panel/styles/panel = SubResource("StyleBoxFlat_8j4gr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd4wv"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_4gctk"]
+Panel/styles/panel = SubResource("StyleBoxFlat_pd4wv")
 
 [node name="Shop" type="CanvasLayer"]
 layer = 0
@@ -75,4 +91,44 @@ offset_right = 106.0
 offset_bottom = 31.0
 text = "Tower Shop"
 
+[node name="ReturnHomePanel" type="Panel" parent="Shop"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 0
+offset_left = 196.0
+offset_top = 251.0
+offset_right = 296.0
+offset_bottom = 281.0
+theme = ExtResource("5_pd4wv")
+script = ExtResource("6_pxn6o")
+
+[node name="Label" type="Label" parent="Shop/ReturnHomePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 81.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 8
+text = "Return to Home"
+
+[node name="ClosePanel" type="Panel" parent="Shop"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 0
+offset_left = 259.0
+offset_top = 12.0
+offset_right = 309.0
+offset_bottom = 32.0
+theme = SubResource("Theme_4gctk")
+script = ExtResource("7_2ll40")
+
+[node name="Label" type="Label" parent="Shop/ClosePanel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 8
+text = "Close"
+
 [connection signal="gui_input" from="ShopPanel" to="Shop/FlowContainer/FirewallTowerPanel" method="_on_menu_panel_gui_input"]
+[connection signal="gui_input" from="Shop/ReturnHomePanel" to="ShopPanel" method="_on_return_home_panel_gui_input"]
+[connection signal="gui_input" from="Shop/ClosePanel" to="ShopPanel" method="_on_close_panel_gui_input"]

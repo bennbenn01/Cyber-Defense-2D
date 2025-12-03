@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce53h5e12s2fv"]
 
-[ext_resource type="Texture2D" uid="uid://d4g8jfcdaik4b" path="res://Sprite/scoring and health/currency.png" id="1_3xa1o"]
+[ext_resource type="Texture2D" uid="uid://d4g8jfcdaik4b" path="res://Sprite/coin/currency.png" id="1_3xa1o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

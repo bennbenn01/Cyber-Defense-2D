@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1wemgcnfqvan"]
+
+[ext_resource type="Texture2D" uid="uid://g4qc8gfgsqa4" path="res://Sprite/tower/IDS tower.png" id="1_86ery"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i04u2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3200"]
+radius = 60.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh5kf"]
+bg_color = Color(0.3137255, 0.6156863, 0.92156863, 0.4392157)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="Theme" id="Theme_86ery"]
+Panel/styles/panel = SubResource("StyleBoxFlat_dh5kf")
+
+[node name="IDSTowerPreview" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i04u2")
+
+[node name="IDSTower" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_86ery")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_a3200")
+
+[node name="Range" type="Panel" parent="."]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+theme = SubResource("Theme_86ery")

@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://d48t2c0obebc"]
+[gd_scene load_steps=8 format=3 uid="uid://d48t2c0obebc"]
+
+[ext_resource type="Script" uid="uid://b2c3smedtwr7y" path="res://Script/StartMenu.cs" id="1_2o34a"]
+[ext_resource type="Theme" uid="uid://i42jhskdmf8f" path="res://Sprite/ui/style/start_button_theme.tres" id="1_uh8h7"]
+[ext_resource type="Texture2D" uid="uid://cx48lm2u26wq0" path="res://Sprite/ui/Background.jpeg" id="2_iky0u"]
+[ext_resource type="FontFile" uid="uid://bmyx7xvj5rb48" path="res://Sprite/ui/fonts/Welfresh.otf" id="3_2ncvc"]
+
+[sub_resource type="Theme" id="Theme_2ncvc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2wd7"]
+texture = ExtResource("2_iky0u")
+modulate_color = Color(1, 1, 1, 0.5019608)
+
+[sub_resource type="FontVariation" id="FontVariation_iky0u"]
+base_font = ExtResource("3_2ncvc")
 
 [node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_2o34a")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 400)
+offset_top = 1.0
+offset_right = 613.0
+offset_bottom = 401.0
+theme = SubResource("Theme_2ncvc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_i2wd7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 245.0
+offset_right = 404.0
+offset_bottom = 317.0
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_uh8h7")
+text = "Start Game"
+
+[node name="ExitButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_uh8h7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+text = "Exit Game"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 376.0
+offset_bottom = 94.0
+theme_override_fonts/font = SubResource("FontVariation_iky0u")
+theme_override_font_sizes/font_size = 35
+text = "Cyber Defense 2D"

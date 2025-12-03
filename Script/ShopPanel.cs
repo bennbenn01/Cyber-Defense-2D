@@ -25,7 +25,7 @@ public partial class ShopPanel : Panel
 
 		if (shop == null)
 		{
-			GD.PrintErr("Shop panel not found!");	
+			GD.Print("Shop panel not found!");	
 		}
 		
 		shop.Visible = !shop.Visible;

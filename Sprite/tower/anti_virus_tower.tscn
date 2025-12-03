@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://q626svb4805t"]
+
+[ext_resource type="Script" uid="uid://br4rvp7aotwv4" path="res://Script/AntiVirusTower.cs" id="1_js0or"]
+[ext_resource type="Texture2D" uid="uid://8wy5vtwepsq5" path="res://Sprite/tower/Anti Virus.png" id="1_r27m8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_js0or"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3s4n"]
+radius = 60.0
+
+[node name="Anti Virus Tower" type="StaticBody2D"]
+script = ExtResource("1_js0or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_js0or")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="AntiVirusTower" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_r27m8")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_t3s4n")
+
+[node name="AntiVirusBeamContainer" type="Node" parent="."]
+
+[node name="DeleteButton" type="Button" parent="."]
+visible = false
+offset_left = 11.0
+offset_top = -28.0
+offset_right = 71.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 8
+text = "Delete Tower"
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi2bfwkvcdcuj"]
+
+[ext_resource type="Script" uid="uid://bpyj4bbi57hwl" path="res://Script/IdsTower.cs" id="1_cx3yp"]
+[ext_resource type="Texture2D" uid="uid://g4qc8gfgsqa4" path="res://Sprite/tower/IDS tower.png" id="1_o74un"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx3yp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2x1e"]
+radius = 60.0
+
+[node name="IDS Tower" type="StaticBody2D"]
+script = ExtResource("1_cx3yp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cx3yp")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="IDSTower" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_o74un")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_q2x1e")
+
+[node name="IDSProjectileContainer" type="Node" parent="."]
+
+[node name="DeleteButton" type="Button" parent="."]
+visible = false
+offset_left = 11.0
+offset_top = -28.0
+offset_right = 71.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 8
+text = "Delete Tower"
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4g8jfcdaik4b"
-path="res://.godot/imported/currency.png-4d660c8ac254a21b138c2d406142d61a.ctex"
+uid="uid://cx48lm2u26wq0"
+path="res://.godot/imported/Background.jpeg-11131fe3e39b31d76055aabe0857b823.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/scoring and health/currency.png"
-dest_files=["res://.godot/imported/currency.png-4d660c8ac254a21b138c2d406142d61a.ctex"]
+source_file="res://Sprite/ui/Background.jpeg"
+dest_files=["res://.godot/imported/Background.jpeg-11131fe3e39b31d76055aabe0857b823.ctex"]
 
 [params]
 
