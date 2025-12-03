@@ -48,7 +48,9 @@ public partial class GameManager : Node2D
 		_healthLabel = currentScene.GetNodeOrNull<Label>("UI/Panel/HealthLabel");
 		_waveLabel = currentScene.GetNodeOrNull<Label>("UI/Panel/WaveLabel");
 
-    	UpdateUI();
+    	UpdateCoins();
+		UpdateHealth();
+		UpdateWave();
 	}
 	
 	public bool CanAfford(int cost)
@@ -59,13 +61,13 @@ public partial class GameManager : Node2D
 	public void AddCoins(int amount)
 	{
 		Coins += amount;
-		UpdateUI();
+		UpdateCoins();
 	}
 		
 	public void SpendCoins(int amount)
 	{
 		Coins -= amount;
-		UpdateUI();
+		UpdateCoins();
 	}	
 
 	public void ReduceHealth(int amount)
@@ -77,7 +79,7 @@ public partial class GameManager : Node2D
 
 		if (Health <= 0) GameOver("Failed!");
 
-		UpdateUI();
+		UpdateHealth();
 	}
 	
 	public void SetWave(int start, int end)
@@ -85,7 +87,7 @@ public partial class GameManager : Node2D
 		startWave = start;
 		endWave = end;
 		
-		UpdateUI();
+		UpdateWave();
 	}
 	
 	public void GetWave(int start, int end)
@@ -93,7 +95,7 @@ public partial class GameManager : Node2D
 		start = startWave;
 		end = endWave;
 	
-	    UpdateUI();
+	    UpdateWave();
 	}	
 	
 	public void RegisterEnemyDeaths()
@@ -104,7 +106,9 @@ public partial class GameManager : Node2D
 		GD.Print($"Enemy killed: {enemyDeaths}/{deathsPerWave}");	
 		
 		CheckWaveCompletion();
-		UpdateUI();
+		UpdateCoins();
+		UpdateHealth();
+		UpdateWave();
 	}
 
 	public void RegisterInfiltration()
@@ -152,7 +156,7 @@ public partial class GameManager : Node2D
 			return true;
 		}
 		
-		UpdateUI();
+		UpdateWave();
 		return false;
 	}
 	
@@ -184,11 +188,15 @@ public partial class GameManager : Node2D
 		GetTree().CallDeferred("change_scene_to_packed", endScene);
 	}
 
+	private void UpdateCoins() => _coinsLabel.Text = $"Coins: {Coins}";
+	private void UpdateHealth() => _healthLabel.Text = $"Health: {Health}%";
+	private void UpdateWave() => _waveLabel.Text = $"Wave: {startWave} / {endWave}";
+
 	private void UpdateUI()
 	{
-   		if (IsInstanceValid(_coinsLabel)) _coinsLabel.Text = $"Coins: {Coins}";
-        if (IsInstanceValid(_healthLabel)) _healthLabel.Text = $"Health: {Health}%";
-        if (IsInstanceValid(_waveLabel)) _waveLabel.Text = $"Wave: {startWave} / {endWave}";
+		UpdateCoins();
+		UpdateHealth();
+		UpdateWave();
 	}	
 
 	public void ResetGame()

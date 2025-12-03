@@ -21,6 +21,7 @@ public partial class ReturnStartMenuPanel : Panel
 
 	private void ReturnToStartMenu()
 	{
+		GameManager.Instance.ResetGame();
 		GetTree().ChangeSceneToFile("res://Sprite/ui/start_menu.tscn");
 	}	
 }

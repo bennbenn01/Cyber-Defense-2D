@@ -5,7 +5,7 @@ public partial class AntiVirusBeam : CharacterBody2D
 {
 	public Node2D TargetNode;
 	public int projectileDamage = 3;	
-	private int speed = 50;
+	private int speed = 55;
 
 	public override void _PhysicsProcess(double delta) 
 	{

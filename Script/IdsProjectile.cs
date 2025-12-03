@@ -5,7 +5,7 @@ public partial class IdsProjectile : CharacterBody2D
 {
 	public Node2D TargetNode;
 	public int projectileDamage = 4;	
-	private int speed = 45;	
+	private int speed = 55;	
 
 	public override void _PhysicsProcess(double delta) 
 	{
